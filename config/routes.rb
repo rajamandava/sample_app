@@ -1,12 +1,20 @@
 SampleApp::Application.routes.draw do
   get "users/new"
 
- match '/signup',  :to => 'users#new'
- match '/contact', :to => 'pages#contact'
- match '/about',   :to => 'pages#about'
- match '/help',    :to => 'pages#help'
+ match "/signup" => redirect("http://lfsgurazala.com/signup"), :as => :signup
+ match "/contact" => redirect("http://lfsgurazala.com/contact"), :as => :contact
+ match "/about" => redirect("http://lfsgurazala.com/about"), :as => :about
+ match "/help" => redirect("http://lfsgurazala.com/help"), :as => :help
 
- root :to => 'pages#home'
+ root :to => redirect("http://lfsgurazala.com"), 'pages#home'
+
+
+# match '/signup',  :to => 'users#new'
+# match '/contact', :to => 'pages#contact'
+# match '/about',   :to => 'pages#about'
+# match '/help',    :to => 'pages#help'
+
+# root :to => 'pages#home'
 
 # root_path # => 'http://www.lfsgurazala.com'
   # The priority is based upon order of creation:
